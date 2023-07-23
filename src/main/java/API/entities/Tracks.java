@@ -27,8 +27,12 @@ public class Tracks {
         return allTracks.get(id);
     }
 
+    public Integer size(){
+        return allTracks.size();
+    }
+
     @Override
-    public String toString() {
+    public String toString(){
         return allTracks.toString();
     }
 }

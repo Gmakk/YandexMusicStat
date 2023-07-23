@@ -1,14 +1,41 @@
-import API.Loader;
 import API.Saver;
-import API.entities.Tracks;
+import API.authorization.Authorization;
 
 import java.io.IOException;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        Tracks tracks;
-        Saver.saveTracks();
-        tracks = Loader.loadTracks();
-        System.out.println(tracks);
+        //TODO: обработать во всех запросах ответ, когда запрос выполнен с ошибкой
+        //ВСЕ
+//        Saver.saveAll();
+
+        //ТРЕКИ
+//        Tracks tracks;
+//        Saver.saveLikedTracks();
+//        tracks = Loader.loadLikedTracks();
+//        System.out.println(tracks.size());
+
+        //АЛЬБОМЫ
+//        Albums albums;
+//        Saver.saveLikedAlbums();
+//        albums = Loader.loadLikedAlbums();
+//        System.out.println(albums.size());
+
+        //АРТИСТЫ
+//        Artists artists;
+//        Saver.saveLikedArtists();
+//        artists = Loader.loadLikedArtists();
+//        System.out.println(artists.size());
+
+        //ПЛЕЙЛИСТЫ
+//        Playlists playlists;
+//        Saver.saveUsersPlaylists();
+//        playlists = Loader.loadUsersPlaylists();
+//        System.out.println(playlists.size());
+
+        //АВТОРИЗАЦИЯ
+        Authorization.getToken();
+        //Saver.updateToken();
+        //Saver.saveAll();
     }
 }
