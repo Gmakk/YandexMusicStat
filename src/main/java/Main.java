@@ -1,5 +1,11 @@
+import API.Dates;
+import API.Loader;
 import API.Saver;
 import API.authorization.Authorization;
+import API.entities.Tracks;
+
+import java.util.Calendar;
+import java.util.Date;
 
 import java.io.IOException;
 
@@ -34,8 +40,11 @@ public class Main {
 //        System.out.println(playlists.size());
 
         //АВТОРИЗАЦИЯ
-        Authorization.getToken();
+        //Authorization.getToken();
         //Saver.updateToken();
-        //Saver.saveAll();
+        Saver.saveAll();
+
+        Loader.loadLikedTracks();
+        System.out.println(Tracks.likedPerDay());
     }
 }
