@@ -53,7 +53,9 @@ public class SelectionSceneController {
         }catch (IOException ex){
             Alert alert = new Alert(Alert.AlertType.ERROR, "Не получилось обновить информацию попробуйте еще раз или перезайдите", ButtonType.OK);
         }
+        Saver.saveUsersInformation();
         Loader.loadUsersInfo();
+        Saver.updateUID();
         //отображаем информацию о самом пользователе
         setUsersFields();
         //уведомляем о совершенном действии

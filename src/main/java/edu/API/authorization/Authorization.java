@@ -113,8 +113,6 @@ public class Authorization {
                     .create();
             gson.fromJson(String.valueOf(postResult), Token.class);
 
-            System.out.println(postResult);
-            System.out.println(Token.getToken());
             return true;
         }catch (HttpResponseException ex){
             System.out.println(ex.toString() + "\nTry again");

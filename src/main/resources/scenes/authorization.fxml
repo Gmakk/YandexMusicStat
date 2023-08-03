@@ -16,7 +16,7 @@
                   <Image url="@../logo.jpg" />
                </image>
             </ImageView>
-            <Line endX="-100.0" endY="125.85786437988281" fill="BLACK" startX="-100.0" strokeWidth="10.0" />
+            <Line endX="-100.0" endY="140.0" fill="BLACK" startX="-100.0" strokeWidth="10.0" />
             <Label text="Yandex Music Stat" textFill="#ffcc00">
                <font>
                   <Font size="96.0" />
@@ -34,7 +34,7 @@
       </Label>
       <HBox alignment="CENTER">
          <children>
-            <Hyperlink alignment="CENTER" cache="true" contentDisplay="CENTER" text="Get confirmation code" textAlignment="CENTER" fx:id="authorizationLink" onAction="#urlOpened">
+            <Hyperlink fx:id="authorizationLink" alignment="CENTER" cache="true" contentDisplay="CENTER" onAction="#urlOpened" text="Get confirmation code" textAlignment="CENTER">
                <font>
                   <Font size="24.0" />
                </font>
@@ -57,11 +57,11 @@
                      <font>
                         <Font size="18.0" />
                      </font></TextField>
-                  <Button mnemonicParsing="false" text="Submit" onAction="#submitButtonPressed">
+                  <Button mnemonicParsing="false" onAction="#submitButtonPressed" text="Submit">
                      <font>
                         <Font size="18.0" />
                      </font></Button>
-                  <Button mnemonicParsing="false" text="Exit" onAction="#exitButtonPressed">
+                  <Button mnemonicParsing="false" onAction="#exitButtonPressed" text="Exit">
                      <font>
                         <Font size="18.0" />
                      </font></Button>

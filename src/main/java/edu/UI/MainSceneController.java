@@ -52,6 +52,10 @@ public class MainSceneController {
         }else {
             Authorization.setConfirmationCode(Integer.valueOf(authorizationCode.getText()));
             if (Authorization.getToken()) {
+                Saver.updateToken();
+                Saver.saveUsersInformation();
+                Loader.loadUsersInfo();
+                Saver.updateUID();
                 //переходим к экрану пользователя
                 SceneManager.setUserScene();
             } else {

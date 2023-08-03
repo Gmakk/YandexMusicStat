@@ -36,7 +36,7 @@ public class Loader {
                     .create();
             user = gson.fromJson(jsonString, User.class);
         } catch (IOException e) {
-            System.out.println("Unable to user`s information");
+            System.out.println("Unable to load user`s information");
         }
         return user;
     }

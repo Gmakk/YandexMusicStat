@@ -1,6 +1,7 @@
 package edu.API;
 
 import edu.API.authorization.Token;
+import edu.API.entities.User;
 import org.apache.http.client.fluent.Content;
 import org.apache.http.client.fluent.Request;
 
@@ -17,9 +18,9 @@ import java.nio.file.*;
 public class Saver {
     //TODO: Задать token и uid null
     //TODO: token вообще убрать и проверять Token
-    private static String token = "AgAAAAATSr_6AAG8Xu70TUy3-0x0kMf3uPc04fA";
+    private static String token;
     private static final String INFO_PATH = new File("src/main/resources/musicinfo").getAbsolutePath();
-    private static String uid = "1690122955922";
+    private static String uid;
 
     public static void setToken(String token) {
         Saver.token = token;
@@ -27,6 +28,10 @@ public class Saver {
 
     public static void updateToken(){
         Saver.token = Token.getToken();
+    }
+
+    public static void updateUID(){
+        Saver.uid = User.getId();
     }
 
     /**
@@ -40,7 +45,6 @@ public class Saver {
         final Content getResult = Request.Get(request)
                 .addHeader("accept","application/json").addHeader("Authorization","OAuth " + token)
                 .execute().returnContent();
-
         Files.write(Path.of(INFO_PATH + "/" + fileName + ".json"), getResult.asBytes());
     }
 
@@ -62,11 +66,7 @@ public class Saver {
 
     public static void saveUsersInformation(){
         try {
-            Content getResult = Request.Get("https://login.yandex.ru/info")
-                    .addHeader("Authorization","OAuth " + token)
-                    .execute().returnContent();
-            System.out.println(getResult);
-            Files.write(Path.of(INFO_PATH + "/UsersInformation.json"), getResult.asBytes());
+            saveContent("https://login.yandex.ru/info","UsersInformation");
         } catch (IOException e) {
             System.out.println("Unable to save user`s information");
         }
@@ -92,6 +92,7 @@ public class Saver {
         try {
             saveContent("https://api.music.yandex.net:443/users/"+ uid +"/likes/artists", "LikedArtists");
         } catch (IOException e) {
+            //System.out.println(e.toString());
             System.out.println("Unable to save liked artists");
         }
     }
@@ -102,5 +103,16 @@ public class Saver {
         } catch (IOException e) {
             System.out.println("Unable to save tracks");
         }
+    }
+
+    public static void testRequest() throws IOException {
+        System.out.println("Token token: " + Token.getToken());
+        System.out.println("Token: " + token);
+        System.out.println("ID User: " + User.getId());
+        System.out.println("UID: " + uid);
+        Content getResult = Request.Get("https://api.music.yandex.net:443/users/"+ uid +"/likes/artists")
+                .addHeader("accept","application/json").addHeader("Authorization","OAuth " + token)
+                .execute().returnContent();
+        System.out.println(getResult);
     }
 }
