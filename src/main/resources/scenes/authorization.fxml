@@ -48,7 +48,7 @@
          <children>
             <ImageView fitHeight="350.0" fitWidth="350.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../placeholderDog.jpg" />
+                  <Image url="@../QR.png" />
                </image>
             </ImageView>
             <TilePane alignment="CENTER" cache="true" orientation="VERTICAL" prefColumns="1" prefHeight="200.0" prefRows="3" prefTileHeight="100.0" prefTileWidth="200.0" prefWidth="200.0">

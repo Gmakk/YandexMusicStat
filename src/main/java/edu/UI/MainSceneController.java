@@ -29,7 +29,6 @@ public class MainSceneController {
     @FXML
     public void urlOpened() {
         hostServices.showDocument(Authorization.getAuthLink());
-        System.out.println(Authorization.getAuthLink());
     }
 
     @FXML

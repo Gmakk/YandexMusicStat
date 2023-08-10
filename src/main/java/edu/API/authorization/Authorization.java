@@ -86,8 +86,7 @@ public class Authorization {
     }
 
     public static String getAuthLink(){
-        return "Please follow the link and enter the confirmation code:\n" +
-                "https://oauth.yandex.ru/authorize?response_type=code&client_id=" + CLIENT_ID;
+        return "https://oauth.yandex.ru/authorize?response_type=code&client_id=" + CLIENT_ID;
     }
 
     /**

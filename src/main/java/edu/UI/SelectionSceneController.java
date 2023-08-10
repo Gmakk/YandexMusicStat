@@ -2,7 +2,9 @@ package edu.UI;
 
 import edu.API.Loader;
 import edu.API.Saver;
+import edu.API.authorization.Authorization;
 import edu.API.entities.User;
+import javafx.application.HostServices;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
@@ -21,6 +23,12 @@ public class SelectionSceneController {
     @FXML
     private Button updateButton;
 
+    //Нужен для перехода по ссылкам
+    static private HostServices hostServices;
+
+    public static void setHostServices(HostServices hostServices) {
+        SelectionSceneController.hostServices = hostServices;
+    }
     /**
      * Метод выставляет в Label информацию о пользователе
      */
@@ -33,13 +41,17 @@ public class SelectionSceneController {
 
     @FXML
     public void exitButtonPressed(){
-
         SceneManager.closeStage();
     }
 
     @FXML
     public void mainScreenButtonPressed(){
         SceneManager.setMainScene();
+    }
+
+    @FXML
+    public void codeButtonPressed(){
+        hostServices.showDocument("https://github.com/Gmakk/YandexMusicStat");
     }
 
     /**

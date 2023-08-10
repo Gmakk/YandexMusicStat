@@ -1,8 +1,11 @@
 package edu;
 
+import edu.UI.QRCodeGenerator;
 import edu.API.authorization.Authorization;
 import edu.UI.MainSceneController;
+import edu.UI.QRCodeGenerator;
 import edu.UI.SceneManager;
+import edu.UI.SelectionSceneController;
 import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Parent;
@@ -32,6 +35,8 @@ public class Main extends Application{
         InputStream iconStream = getClass().getResourceAsStream("/logo.jpg");
         Image image = new Image(iconStream);
         primaryStage.getIcons().add(image);
+        //генерируем QR-код для авторизации
+        QRCodeGenerator.generateQRCodeImage(Authorization.getAuthLink(),350,350,"QR");
         //задаем Stage, в который будут устанавливаться нужные сцены
         SceneManager.setPrimaryStage(primaryStage);
         //включаем первую сцену
@@ -39,7 +44,7 @@ public class Main extends Application{
         //SceneManager.setUserScene();
         //передача HostServices для возможности перехода по ссылке
         MainSceneController.setHostServices(getHostServices());
-        getHostServices().showDocument(Authorization.getAuthLink());
+        SelectionSceneController.setHostServices(getHostServices());
         //отображаем stage
         primaryStage.show();
     }
