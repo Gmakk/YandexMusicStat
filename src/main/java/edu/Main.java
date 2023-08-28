@@ -1,11 +1,10 @@
 package edu;
 
-import edu.UI.QRCodeGenerator;
+import edu.API.Loader;
+import edu.API.entities.Tracks;
+import edu.UI.*;
 import edu.API.authorization.Authorization;
-import edu.UI.MainSceneController;
 import edu.UI.QRCodeGenerator;
-import edu.UI.SceneManager;
-import edu.UI.SelectionSceneController;
 import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Parent;
@@ -40,8 +39,11 @@ public class Main extends Application{
         //задаем Stage, в который будут устанавливаться нужные сцены
         SceneManager.setPrimaryStage(primaryStage);
         //включаем первую сцену
-        SceneManager.setMainScene();
+        //SceneManager.setMainScene();
         //SceneManager.setUserScene();
+        SceneManager.setChartsScene();
+        //ChartsSceneController chartsSceneController = new ChartsSceneController();
+        //chartsSceneController.viewIntervals(120);
         //передача HostServices для возможности перехода по ссылке
         MainSceneController.setHostServices(getHostServices());
         SelectionSceneController.setHostServices(getHostServices());

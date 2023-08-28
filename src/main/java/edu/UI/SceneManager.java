@@ -68,6 +68,17 @@ public class SceneManager {
     }
 
     @FXML
+    public static void setChartsScene() {
+        try {
+            setScene("charts");
+        }catch (IOException ex){
+            System.out.println("Unable to load charts scene");
+            //если не получилось загрузить нужную сцену, делается переход на начальную
+            setMainScene();
+        }
+    }
+
+    @FXML
     public static void closeStage(){
         primaryStage.close();
     }
