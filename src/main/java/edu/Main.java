@@ -40,9 +40,10 @@ public class Main extends Application{
         SceneManager.setPrimaryStage(primaryStage);
         //включаем первую сцену
         //SceneManager.setMainScene();
-        //SceneManager.setUserScene();
-        SceneManager.setChartsScene();
-        //ChartsSceneController chartsSceneController = new ChartsSceneController();
+        SceneManager.setUserScene();
+        //SceneManager.setTracksPerPeriodScene();
+        //SceneManager.setLikedPerDayScene();
+        //TracksPerPeriodSceneController chartsSceneController = new TracksPerPeriodSceneController();
         //chartsSceneController.viewIntervals(120);
         //передача HostServices для возможности перехода по ссылке
         MainSceneController.setHostServices(getHostServices());

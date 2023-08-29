@@ -68,11 +68,22 @@ public class SceneManager {
     }
 
     @FXML
-    public static void setChartsScene() {
+    public static void setTracksPerPeriodScene() {
         try {
-            setScene("charts");
+            setScene("tracksPerPeriod");
         }catch (IOException ex){
-            System.out.println("Unable to load charts scene");
+            System.out.println("Unable to load chart scene");
+            //если не получилось загрузить нужную сцену, делается переход на начальную
+            setMainScene();
+        }
+    }
+
+    @FXML
+    public static void setLikedPerDayScene() {
+        try {
+            setScene("likedPerDay");
+        }catch (IOException ex){
+            System.out.println("Unable to load chart scene");
             //если не получилось загрузить нужную сцену, делается переход на начальную
             setMainScene();
         }

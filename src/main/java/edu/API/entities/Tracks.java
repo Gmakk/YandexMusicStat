@@ -57,6 +57,8 @@ public class Tracks {
      * Метод подсчитывает количество отмеченных "мне нравится/не нравится" треков за каждый день
      * @return Возвращает LinkedHashMap с отсортированными по убыванию значения элементами
      */
+    //TODO: Откуда берется время
+    //TODO: Статистика судя по всему неправильная
     public Map<Date,Integer> addedPerDay(){
         Map<Date,Integer> result = new LinkedHashMap<>();//дата и количество
         allTracks.forEach((String id, Track track) -> {

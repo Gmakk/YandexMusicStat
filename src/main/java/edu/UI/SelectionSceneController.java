@@ -54,6 +54,16 @@ public class SelectionSceneController {
         hostServices.showDocument("https://github.com/Gmakk/YandexMusicStat");
     }
 
+    @FXML
+    public void likedPerDayButtonPressed(){
+        SceneManager.setLikedPerDayScene();
+    }
+
+    @FXML
+    public void tracksPerPeriodButtonPressed(){
+        SceneManager.setTracksPerPeriodScene();
+    }
+
     /**
      * Метод делает запросы к API и загружает всю информацию пользователя
      */
