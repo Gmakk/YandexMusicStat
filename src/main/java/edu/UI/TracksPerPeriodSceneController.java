@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.scene.chart.*;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 
 import javafx.scene.control.*;
@@ -16,17 +17,18 @@ public class TracksPerPeriodSceneController {
     @FXML
     private VBox vbox;
     @FXML
+    private Pane pane;
+    @FXML
     private TextField interval;
-
-    //TODO: При нажатии кнопки выхода сбрасывать флаг
 
     /**
      * Метод отображает на scene график распределения добавления треков в сутках
+     * @throws NumberFormatException при вводе не числа
      */
     @FXML
-    public void viewIntervals(){
+    public void viewIntervals() throws NumberFormatException{
         Integer intervalSizeMins = Integer.valueOf(interval.getText());
-        if(!interval.getText().matches("-?\\d+(\\.\\d+)?") || (1440 % intervalSizeMins != 0 && intervalSizeMins > 0)) {
+        if(1440 % intervalSizeMins != 0 || intervalSizeMins < 0) {
             Alert alert = new Alert(Alert.AlertType.ERROR, "It is impossible to divide a day into such intervals", ButtonType.OK);
             alert.showAndWait();
             return;
@@ -50,17 +52,23 @@ public class TracksPerPeriodSceneController {
             series.getData().add(new XYChart.Data(interv.toString(), number));
         });
         barChart.getData().add(series);
-
+        //задаем размер графика
+        barChart.setPrefSize(980,500);
         //если есть старый график, то удаляем его
         if(isChartCreated)
-            vbox.getChildren().remove(vbox.lookup("#barChart"));
+            pane.getChildren().remove(pane.lookup("#barChart"));
         //отображаем новый график
-        vbox.getChildren().add(barChart);
+        pane.getChildren().add(barChart);
         isChartCreated = true;
     }
 
     @FXML
     public void mainScreenButtonPressed(){
         SceneManager.setUserScene();
+    }
+
+    @FXML
+    public void exitButtonPressed(){
+        SceneManager.closeStage();
     }
 }

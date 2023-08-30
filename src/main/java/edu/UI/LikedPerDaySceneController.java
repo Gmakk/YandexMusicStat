@@ -32,12 +32,11 @@ public class LikedPerDaySceneController {
     @FXML
     public void viewTop() throws NumberFormatException{
         Integer numberOfLines = Integer.valueOf(size.getText());
-        if(numberOfLines < 0) {
+        if(size.getText().trim().isEmpty() || numberOfLines < 0) {
             Alert alert = new Alert(Alert.AlertType.ERROR, "Incorrect number", ButtonType.OK);
             alert.showAndWait();
             return;
         }
-
         //загружаем данные и получаем по ним статистику
         Tracks likedPerDayTracks = Loader.loadLikedTracks();
         //очищаем от старых записей

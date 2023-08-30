@@ -57,8 +57,8 @@
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0">
                      <children>
-                        <Button mnemonicParsing="false" text="Tracks per day" onAction="#likedPerDayButtonPressed"/>
-                        <Button layoutY="25.0" mnemonicParsing="false" text="Liked per period" onAction="#tracksPerPeriodButtonPressed"/>
+                        <Button mnemonicParsing="false" onAction="#likedPerDayButtonPressed" prefHeight="26.0" prefWidth="901.0" text="Tracks per day" />
+                        <Button layoutY="25.0" mnemonicParsing="false" onAction="#tracksPerPeriodButtonPressed" prefHeight="26.0" prefWidth="901.0" text="Liked per period" />
                      </children></AnchorPane>
               </content>
             </ScrollPane>

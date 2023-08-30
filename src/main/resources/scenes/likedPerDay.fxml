@@ -5,9 +5,9 @@
 
 <VBox fx:id="vbox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.UI.LikedPerDaySceneController">
    <children>
-      <TextField fx:id="size" />
-      <Button mnemonicParsing="false" text="To selection screen" onAction="#mainScreenButtonPressed"/>
+      <TextField fx:id="size" focusTraversable="false" promptText="Enter how many records to display" />
       <Button mnemonicParsing="false" onAction="#viewTop" text="Show chart" />
+      <Button mnemonicParsing="false" onAction="#mainScreenButtonPressed" text="To selection screen" />
       <ScrollPane prefHeight="341.0" prefWidth="600.0">
          <content>
             <VBox fx:id="topDays" prefHeight="200.0" prefWidth="600.0" />
