@@ -10,6 +10,8 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
 
 import java.util.Date;
 import java.util.Iterator;
@@ -31,6 +33,7 @@ public class LikedPerDaySceneController {
      */
     @FXML
     public void viewTop() throws NumberFormatException{
+
         Integer numberOfLines = Integer.valueOf(size.getText());
         if(size.getText().trim().isEmpty() || numberOfLines < 0) {
             Alert alert = new Alert(Alert.AlertType.ERROR, "Incorrect number", ButtonType.OK);
@@ -39,29 +42,43 @@ public class LikedPerDaySceneController {
         }
         //загружаем данные и получаем по ним статистику
         Tracks likedPerDayTracks = Loader.loadLikedTracks();
+        //если список пустой, то выводить нечего
+        if(likedPerDayTracks.size() < 0)
+            return;
         //очищаем от старых записей
         if(topDays.getChildrenUnmodifiable().size() > 0)
             topDays.getChildren().clear();
-
-        Map<Date,Integer> map = likedPerDayTracks.addedPerDay();
-        Iterator<Map.Entry<Date, Integer>> iterator = map.entrySet().iterator();
+        Map<String,Integer> map = likedPerDayTracks.addedPerDay();
+        Iterator<Map.Entry<String, Integer>> iterator = map.entrySet().iterator();
+        Label buf;
         //добавляем новые записи
-        if(likedPerDayTracks.size() < numberOfLines)
-            while (iterator.hasNext()){
-                topDays.getChildren().add(new Label(iterator.next().toString()));
-                //iterator.next();
+        //выводим все строки
+        if(map.size() <= numberOfLines)
+            for (int i=0;i<map.size();i++) {
+                buf = new Label(iterator.next().toString());
+                buf.setTextFill(new Color(1 - ((double) 1/map.size())*i,0,0,1));
+                buf.setStyle("-fx-font: " + (42 - ((double) 24/map.size())*i +" arial;"));
+                topDays.getChildren().add(buf);
             }
+        //выводим не все строки
         else {
             for (int i=0;i<numberOfLines;i++) {
-                topDays.getChildren().add(new Label(iterator.next().toString()));
-                //iterator.next();
+                buf = new Label(iterator.next().toString());
+                buf.setTextFill(new Color(1 - ((double) 1/numberOfLines)*i,0,0,1));
+                buf.setStyle("-fx-font: " + (42 - ((double) 24/numberOfLines)*i +" arial;"));
+                topDays.getChildren().add(buf);
             }
         }
-        System.out.println(topDays.getChildren());
+        //System.out.println(topDays.getChildren());
     }
 
     @FXML
     public void mainScreenButtonPressed(){
         SceneManager.setUserScene();
+    }
+
+    @FXML
+    public void exitButtonPressed(){
+        SceneManager.closeStage();
     }
 }

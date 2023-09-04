@@ -1,16 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<VBox fx:id="vbox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.UI.LikedPerDaySceneController">
+<VBox fx:id="vbox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.UI.LikedPerDaySceneController">
    <children>
       <TextField fx:id="size" focusTraversable="false" promptText="Enter how many records to display" />
-      <Button mnemonicParsing="false" onAction="#viewTop" text="Show chart" />
-      <Button mnemonicParsing="false" onAction="#mainScreenButtonPressed" text="To selection screen" />
-      <ScrollPane prefHeight="341.0" prefWidth="600.0">
+      <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#viewTop" text="Show chart">
+         <font>
+            <Font size="18.0" />
+         </font>
+         <VBox.margin>
+            <Insets bottom="15.0" left="445.0" top="15.0" />
+         </VBox.margin></Button>
+      <ScrollPane prefHeight="491.0" prefWidth="1000.0">
          <content>
             <VBox fx:id="topDays" prefHeight="200.0" prefWidth="600.0" />
          </content></ScrollPane>
+
+      <TilePane alignment="BOTTOM_CENTER">
+         <children>
+            <Button mnemonicParsing="false" onAction="#mainScreenButtonPressed" text="To selection screen">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#exitButtonPressed" text="Exit">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+         </children>
+
+         <VBox.margin>
+            <Insets bottom="20.0" top="20.0" />
+         </VBox.margin>
+      </TilePane>
    </children>
 </VBox>

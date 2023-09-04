@@ -1,5 +1,7 @@
 package edu.API.entities;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.*;
 import edu.API.Dates;
 import edu.API.Interval;
@@ -59,10 +61,11 @@ public class Tracks {
      */
     //TODO: Откуда берется время
     //TODO: Статистика судя по всему неправильная
-    public Map<Date,Integer> addedPerDay(){
-        Map<Date,Integer> result = new LinkedHashMap<>();//дата и количество
+    public Map<String,Integer> addedPerDay(){
+        Map<String,Integer> result = new LinkedHashMap<>();//дата и количество
+        DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
         allTracks.forEach((String id, Track track) -> {
-            Date date = Dates.timestampToDate(track.getTimestamp());
+            String date = df.format(Dates.timestampToDate(track.getTimestamp()));
             if(!result.containsKey(date))
                 result.put(date,1);
             else{
