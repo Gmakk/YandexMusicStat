@@ -6,5 +6,6 @@
 ```
 mvn clean javafx:run
 ```
-![Example1](https://github.com/Gmakk/YandexMusicStat/assets/71002826/73a56a2e-5a57-4498-b10f-2875f6ad1896)
-![Example2](https://github.com/Gmakk/YandexMusicStat/assets/71002826/5e7c3606-b5c7-4f91-9cc7-a6235aaa5c1e)
+![login](https://github.com/Gmakk/YandexMusicStat/assets/71002826/0ef062fb-beaa-4f4e-ad01-77fe80cf3e44)
+![info](https://github.com/Gmakk/YandexMusicStat/assets/71002826/0e303717-fd64-4ec8-8f0c-ae26bc1f26db)
+![stat](https://github.com/Gmakk/YandexMusicStat/assets/71002826/7aa54066-95e0-49da-b89d-b298a07e690c)
